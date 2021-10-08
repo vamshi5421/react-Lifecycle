@@ -1,46 +1,37 @@
 import React,{Component} from 'react';
 import classes from './App.module.scss';
+import Counter from './Counter';
 
 class App extends Component {
   constructor(props) {
-    console.log('....Constructor');
-    
     super(props);
 
     this.state = {
-      counter : 0
+      mount :true
     }
   }
-  increament = () => {
-    this.setState({counter : this.state.counter + 1})
-  }
-  decreament = () => {
-    this.setState({counter : this.state.counter - 1})
-  }
 
-  componentDidMount() {
-    console.log('....Component did mount');
-    console.log('....-------------------');
+mountCounter = () => {
+  this.setState({mount : true})
+}
+unmountCounter = () => {
+  this.setState({mount : false})
+}
+
+render(){
     
-  }
-
-  
-  render(){
-    console.log('....Render method... ');
     
     return (
       <div className={classes.App}>
-        <div> Counter : {this.state.counter}</div>
-        <button onClick = {this.increament}>Increament</button>
-        <button onClick ={this.decreament}>Decreament</button>
+        
+        <button disabled= {this.state.mount} onClick={this.mountCounter}>Mount</button>
+        <button disabled= {!this.state.mount} onClick={this.unmountCounter}>Unmount</button>
+        {this.state.mount ? <Counter/> : null }
       </div>
     );
   }
-  componentDidUpdate(prevProp, prevState, snapshot){
-    console.log('.... Component did update');
-    console.log('....-------------------'); 
-    
-  }
+  
+  
 }
 
 export default App;
