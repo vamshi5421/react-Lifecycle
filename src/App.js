@@ -6,6 +6,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    console.log('constructor is called');
+    
+    
     this.state = {
       mount :true,
       ignoreProp  : 0,
@@ -38,6 +41,9 @@ render(){
         <button disabled= {!this.state.mount} onClick={this.unmountCounter}>Unmount</button>
 
         <button  onClick={this.ignorePropMethod}>IgnoreProp</button>
+        
+        
+        
         <button  onClick={this.seedGeneratorMethod}>Seed Prop</button>
         {this.state.mount ? <Counter ignoreProp={this.state.ignoreProp} seed = {this.state.seed}/> : null }
       </div>

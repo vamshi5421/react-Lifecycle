@@ -43,7 +43,7 @@ class Counter extends Component {
       console.log('.....should componnent update --- DO NOT RENDER');
       return false;
     }
-    console.log('.....should componnent update ---RENDER');
+    console.log('.........should componnent update ---RENDER');
     return true;
   }
 
@@ -54,7 +54,7 @@ class Counter extends Component {
   }
   
   render(){
-    console.log('....Render method... ');
+    console.log('.......Render method... ');
     if(this.state.error){
         return <div>We have an  error! {this.state.error}</div>
     }
